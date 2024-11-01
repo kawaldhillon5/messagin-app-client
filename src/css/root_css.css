@@ -1,0 +1,20 @@
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_link{
+    text-decoration: none;
+    color: azure;
+    margin: 2%;
+}
+
+.header_links{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 2%;
+    width: 50%;
+}
