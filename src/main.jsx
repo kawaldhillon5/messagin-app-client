@@ -6,8 +6,11 @@ import {
 } from "react-router-dom";
 import './index.css'
 
-import Root, {loader as rootLoader} from "./routes/root";
+import Root, {loader as rootLoader, action as rootAction} from "./routes/root";
 import ErrorPage from "./routes/error";
+import Index from "./routes";
+import LogIn, {action as logInAction} from "./routes/logIn";
+import SignUp, {action as SignUpAction} from "./routes/signup";
 
 
 const router = createBrowserRouter([
@@ -16,6 +19,22 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     loader: rootLoader,
+    action: rootAction,
+    children:[
+      {
+        index: true,
+        element: <Index></Index>
+      },
+      {
+        path: "auth/logIn",
+        element: <LogIn></LogIn>,
+        action: logInAction,
+      },{
+        path: "auth/SignUp",
+        element: <SignUp></SignUp>,
+        action: SignUpAction,
+      }
+    ]
   },
 ]);
 

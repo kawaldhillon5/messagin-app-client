@@ -1,3 +1,9 @@
+body, html{
+    max-height: 100%;
+    margin: 0;
+    min-height: auto;
+}
+
 header {
     width: 100%;
     display: flex;
@@ -18,3 +24,53 @@ header {
     margin-right: 2%;
     width: 50%;
 }
+
+#root_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root_navbar {
+    margin: 2% 1% 2% 2%;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(128, 128, 128, 0.150);
+    border-radius: 10px;
+}
+
+#root_outlet{
+    width: 75%;
+    height: 100%;
+    margin: 2% 2% 2% 1%;
+    background-color: rgba(128, 128, 128, 0.150);
+    border-radius: 10px;
+}
+
+#chatNavbar_title{
+    width: 100%;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 150%
+
+}
+
+#chatNavbar_chat_div{
+    padding-left: 0%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+}
+
+.chatNavbar_chat_item{
+    margin: 3%;
+    text-decoration: none;
+}
+

@@ -1,7 +1,13 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Form, Link, Outlet, redirect, useLoaderData } from "react-router-dom";
 import "../css/root_css.css";
-import { getUser } from "../functions/functions";
+import { getUser, logOut } from "../functions/functions";
 import { useState } from "react";
+import ChatNavbar from "../components/navbar";
+
+export async function action() {
+    await logOut();
+    return redirect('/');
+}
 
 export async function loader() {
     
@@ -11,9 +17,9 @@ export async function loader() {
         const res = await getUser();
         if(res){
             if(res.status === 200){
-                user = res
+                user = res.user
                 return user; 
-            } else if(res.status === 404) {
+            } else if(res.status === 401) {
                 return user;
             } else {
                 throw new Error("Cannot get user");
@@ -37,19 +43,19 @@ export default function Root(){
             <header>
                 <Link className="header_title header_link">Messaging App</Link>
                 <div className="header_links">
-                    <Link className="header_link">Chats</Link>
                     <Link className="header_link">Friends</Link>
                     <Link className="header_link">About</Link>
                     <div className="header_user header_link">
-                    {   user.isLoged ? 
-                        <Link className="header_link" >LogOut</Link> : 
-                        <Link className="header_link">LogIn</Link>
+                    {   user ? 
+                        <Form method="post"><button className="header_link" type="submit" >LogOut</button></Form> : 
+                        <Link to={"auth/logIn"} className="header_link">LogIn</Link>
                     }
                 </div>
                 </div>
             </header>
             <div id="root_content">
-                <Outlet></Outlet>
+                <div id="root_navbar"><ChatNavbar></ChatNavbar></div>
+                <div id="root_outlet"><Outlet context={user}></Outlet></div>
             </div>
             <footer>
                 <span>By</span>
