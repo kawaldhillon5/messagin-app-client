@@ -39,3 +39,7 @@ export async function signUp(data) {
 export async function logOut() {
     return await axios.post(`${baseURL}auth/logOut`);
 }
+
+export async function getData(path) {
+    return await axios.get(`${baseURL}${path}`);
+}

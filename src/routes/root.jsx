@@ -36,21 +36,30 @@ export async function loader() {
 export default function Root(){
 
     const user = useLoaderData();
-    console.log(user);
 
     return (
         <>
             <header>
                 <Link className="header_title header_link">Messaging App</Link>
                 <div className="header_links">
-                    <Link className="header_link">Friends</Link>
-                    <Link className="header_link">About</Link>
-                    <div className="header_user header_link">
-                    {   user ? 
-                        <Form method="post"><button className="header_link" type="submit" >LogOut</button></Form> : 
-                        <Link to={"auth/logIn"} className="header_link">LogIn</Link>
+                    { user 
+                        ?
+                        <Link to={`${user.userId}/friends`} className="header_link">Friends</Link> 
+                        :
+                        null
                     }
-                </div>
+                    <Link className="header_link">About</Link>
+                    {   user ? 
+                            <Form className="header_link" method="post"><button type="submit" >LogOut</button></Form>
+                            : 
+                            <Link to={"auth/logIn"} className="header_link">LogIn</Link>
+                    }
+                    {
+                        user ? 
+                            <Link ><img className="header_link" id="header_link_user_avatar" src={`https://robohash.org/${user.userId}.png?size=40x40`} alt="" /></Link> 
+                            :
+                            null
+                    }
                 </div>
             </header>
             <div id="root_content">

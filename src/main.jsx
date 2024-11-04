@@ -11,6 +11,9 @@ import ErrorPage from "./routes/error";
 import Index from "./routes";
 import LogIn, {action as logInAction} from "./routes/logIn";
 import SignUp, {action as SignUpAction} from "./routes/signup";
+import AuthChecker from "./components/authChecker";
+import Friends, {loader as friendsLoader} from "./routes/friends";
+import AddFriend, {loader as addFriendLoader} from "./routes/addFriend";
 
 
 const router = createBrowserRouter([
@@ -33,6 +36,21 @@ const router = createBrowserRouter([
         path: "auth/SignUp",
         element: <SignUp></SignUp>,
         action: SignUpAction,
+      },
+      {
+        element: <AuthChecker></AuthChecker>,
+        children: [
+          {
+            path: ":userId/friends",
+            element: <Friends />,
+            loader: friendsLoader,
+          },
+          {
+            path: ":userId/friends/addFriend",
+            element: <AddFriend />,
+            loader: addFriendLoader,
+          }
+        ]
       }
     ]
   },
