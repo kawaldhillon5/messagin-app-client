@@ -14,6 +14,7 @@ import SignUp, {action as SignUpAction} from "./routes/signup";
 import AuthChecker from "./components/authChecker";
 import Friends, {loader as friendsLoader} from "./routes/friends";
 import AddFriend, {loader as addFriendLoader} from "./routes/addFriend";
+import FriendDetail, {loader as addFriendDetailLoader,action as addFriendDetailAction} from "./routes/addFriendDetail";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
             path: ":userId/friends/addFriend",
             element: <AddFriend />,
             loader: addFriendLoader,
+          },
+          {
+            path: "addFriend/user/:userId",
+            element: <FriendDetail />,
+            loader: addFriendDetailLoader,
+            action: addFriendDetailAction,
           }
         ]
       }

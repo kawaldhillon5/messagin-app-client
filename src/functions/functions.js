@@ -43,3 +43,7 @@ export async function logOut() {
 export async function getData(path) {
     return await axios.get(`${baseURL}${path}`);
 }
+
+export async function sendFriendReq(id) {
+    return await axios.post(`${baseURL}data/addFriend/user/sendReq/${id}`);
+}

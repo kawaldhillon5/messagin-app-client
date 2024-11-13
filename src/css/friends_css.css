@@ -90,5 +90,54 @@
     to {
       transform: rotate(360deg);
     }
-  }
+}
+
+#add_friend_list{
+    margin-top: 10%;
+    font-size: 120%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1%;
+    list-style: none 
+}
+
+#add_friend_list>.add_friend_list_item>a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+
+#add_friend_detail_div{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10%
+}
+
+#add_friend_detail_img_div{
+    background-color: rgba(240, 248, 255, 0.397);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+#detail_user_avatar{
+    width: 90%;
+}
+
+#add_friend_detail_name{
+    display: flex;
+    margin: 10%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
   

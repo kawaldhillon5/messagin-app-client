@@ -2,10 +2,8 @@ import {  useLoaderData, useNavigate, useOutletContext, useParams } from "react-
 import { getData } from "../functions/functions";
 import "../css/friends_css.css";
 
-export async function loader(params) {
-    console.log(params.params.userId);
-    const res = await getData(`data/${params.params.userId}/friends`);
-    
+export async function loader({params}) {
+    const res = await getData(`data/${params.userId}/friends`);
     return res.data.friends
 }
 

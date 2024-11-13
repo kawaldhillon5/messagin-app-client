@@ -1,8 +1,11 @@
-import { Form, useLoaderData, useNavigation, useSubmit } from "react-router-dom";
+import { Form, Link, useLoaderData, useNavigation, useSubmit } from "react-router-dom";
 import { getData } from "../functions/functions";
 import { useEffect } from "react";
 
-export async function loader({request}) {
+export async function loader({request, params}) {
+    // const [friends, reqsSent] = await Promise.all([
+    //     getData(`data/${params.userId}/friends`), getData(`data/${params.userId}/friendReqsSent`)
+    // ]);
     const url = new URL(request.url);
     const q = url.searchParams.get("q");
     let users = [];
@@ -43,7 +46,10 @@ export default function AddFriend() {
                         placeholder="Search Users here" 
                         defaultValue={q}
                         onChange={(event) => {
-                            submit(event.currentTarget.form);
+                            const isFirstSearch = q == null;
+                            submit(event.currentTarget.form, {
+                                replace: !isFirstSearch,
+                              });
                           }}
                     />
                     <div id="search-spinner-div"> <div id="search-spinner" aria-hidden hidden={!searching}/></div>
@@ -56,9 +62,10 @@ export default function AddFriend() {
                         users.users.length 
                                 ? 
                                 <ul id="add_friend_list">
+                                    <div id="add_friend_list_title">User(s)</div>
                                     { users.users.map((user) =>(
                                         <li className="add_friend_list_item" key={user._id} >
-                                            {user.userName}
+                                            <Link to={`/addFriend/user/${user._id}`}>{user.userName}</Link>
                                         </li>
                                         ))
                                     }
@@ -70,3 +77,18 @@ export default function AddFriend() {
         </div>
     )
 }
+
+// function AddUser(friends, reqsSent, user){
+//     return (
+//         <>
+//             {   friends.length 
+//                 ? friends.map((friend) =>{
+//                     user._id === friend._id ? retur : <>
+//                 }) 
+
+
+//             }
+//         </>
+        
+//     )
+// }
