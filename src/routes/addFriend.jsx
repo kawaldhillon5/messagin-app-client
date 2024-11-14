@@ -1,11 +1,8 @@
-import { Form, Link, useLoaderData, useNavigation, useSubmit } from "react-router-dom";
+import { Form, Link, useLoaderData, useNavigation, useOutletContext, useSubmit } from "react-router-dom";
 import { getData } from "../functions/functions";
 import { useEffect } from "react";
 
 export async function loader({request, params}) {
-    // const [friends, reqsSent] = await Promise.all([
-    //     getData(`data/${params.userId}/friends`), getData(`data/${params.userId}/friendReqsSent`)
-    // ]);
     const url = new URL(request.url);
     const q = url.searchParams.get("q");
     let users = [];
@@ -24,7 +21,8 @@ export default function AddFriend() {
     const {users, q}= useLoaderData();
     const submit = useSubmit();
     const navigation = useNavigation();
-    
+    const mainUser = useOutletContext();
+
     const searching =
     navigation.location &&
     new URLSearchParams(navigation.location.search).has(
@@ -64,9 +62,10 @@ export default function AddFriend() {
                                 <ul id="add_friend_list">
                                     <div id="add_friend_list_title">User(s)</div>
                                     { users.users.map((user) =>(
-                                        <li className="add_friend_list_item" key={user._id} >
-                                            <Link to={`/addFriend/user/${user._id}`}>{user.userName}</Link>
-                                        </li>
+                                            (user._id != mainUser.userId) ?
+                                            <li className="add_friend_list_item" key={user._id} >
+                                                <Link to={`/addFriend/user/${user._id}`}>{user.userName}</Link>
+                                            </li> : null
                                         ))
                                     }
                                 </ul>

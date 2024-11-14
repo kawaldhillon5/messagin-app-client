@@ -26,13 +26,13 @@ export async function loader({params}) {
 export default function FriendDetail(){
     const fetcher = useFetcher();
     const {client, friends, reqsSent} = useLoaderData();
-
+    console.log(friends);
     let isFriend = false; 
     let reqSent = false;
     if(friends){friends.data.friends.map((friend)=>(friend.user._id === client._id? isFriend = true : null));
         if(!(isFriend)){
-            if(reqsSent.data.reqsSent){
-                reqsSent.data.reqsSent.map((req) =>( req.to._id = client._id ? reqSent = true : null))
+            if(reqsSent.data.reqs){
+                reqsSent.data.reqs.map((req) =>( req.to = client._id ? reqSent = true : null))
             }
         }
     }

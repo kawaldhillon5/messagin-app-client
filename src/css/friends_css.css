@@ -1,14 +1,18 @@
 #friends_div{
-    width: 100%;
+    width: 95%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 2%;
     align-items: center;
+    flex-direction: column;
+    margin: 2%;
 }
 
 #no_friends_msg{
     font-size: 120%;
 }
+
 
 #no_friends_div{
     display: flex;
@@ -140,4 +144,175 @@
     align-items: center;
     flex-direction: column;
 }
+
+#friend_req_div{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 5%;
+    gap: 2%;
+    align-items: center;
+}
+
+#friend_req_div_header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 120%;
+    background-color: rgba(240, 248, 255, 0.075);
+}
+
+
+#friend_req_list_div{
+    width: 100%;
+    height: 90%;
+    background-color: rgba(240, 248, 255, 0.075);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+}
+
+.req_top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 3%;
+}
+
+.friend_req_list_item{
+    margin: 3%;
+    background-color: rgba(240, 248, 255, 0.24);
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.req_top_info{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.friend_req_list_item>form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3%;
+}
+
+.accept_reject_in_group>input{
+    display: none;
+}
+
+.accept_reject_in_group{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.accept_reject_in_group>label{
+    text-align: center;
+    width: 20%;
+    font-size: larger;
+    cursor: pointer;
+}
   
+.accept_reject_btn{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+  
+.labelActiveAccept{
+    background-color: green ;
+    border-radius: 10px;
+}
+  
+.labelActiveReject{
+    background-color: rgb(231, 22, 22);
+    border-radius: 10px;
+}
+
+#friends_div_header{
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.075);
+    border-radius: 5px;
+    width: 90%;
+    height: 10%;
+}
+
+#friends_div_header>button{
+    margin-right: 2%;
+}
+
+
+#friends_div_content{
+    overflow: auto;
+    width: 90%;
+    height: 80%;
+    background-color: rgba(240, 248, 255, 0.075);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#friends_div_title{
+    margin-top: 2%;
+    font-size: 120%;
+}
+
+#friends_div_list{
+    list-style: none;
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0%;
+    gap: 2%;
+}
+
+.friends_div_list_item{
+    background-color: rgba(240, 248, 255, 0.075);
+    border-radius: 5px;
+    padding: 2%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    cursor: pointer;
+    transition: transform 150ms;
+}
+
+.friends_div_list_item:hover{
+    transform: scale(1.02);
+}
+
+
+

@@ -1,4 +1,5 @@
 import axios from "axios";
+// 192.168.16.30:5173
 const baseURL = "http://10.0.0.17:3000/";
 
 axios.defaults.withCredentials = true;
@@ -46,4 +47,8 @@ export async function getData(path) {
 
 export async function sendFriendReq(id) {
     return await axios.post(`${baseURL}data/addFriend/user/sendReq/${id}`);
+}
+
+export async function postFriendReqChoice(id, choice) {
+    return await axios.post(`${baseURL}data/addFriend/friendReq/choice`,{data:{id:id,choice:choice}});
 }
