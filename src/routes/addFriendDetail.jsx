@@ -2,7 +2,6 @@ import { Form, useFetcher, useLoaderData, useOutletContext } from "react-router-
 import { getData, sendFriendReq } from "../functions/functions";
 
 export async function action({request,params}) {
-    const formData = await request.formData();
     const res = await sendFriendReq(params.userId);
     return {reqSent: true}
 }
@@ -26,13 +25,12 @@ export async function loader({params}) {
 export default function FriendDetail(){
     const fetcher = useFetcher();
     const {client, friends, reqsSent} = useLoaderData();
-    console.log(friends);
     let isFriend = false; 
     let reqSent = false;
     if(friends){friends.data.friends.map((friend)=>(friend.user._id === client._id? isFriend = true : null));
         if(!(isFriend)){
             if(reqsSent.data.reqs){
-                reqsSent.data.reqs.map((req) =>( req.to = client._id ? reqSent = true : null))
+                reqsSent.data.reqs.map((req) =>( req.to === client._id ? reqSent = true : null))
             }
         }
     }

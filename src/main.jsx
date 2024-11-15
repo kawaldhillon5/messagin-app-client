@@ -16,6 +16,7 @@ import Friends, {loader as friendsLoader} from "./routes/friends";
 import AddFriend, {loader as addFriendLoader} from "./routes/addFriend";
 import FriendDetail, {loader as addFriendDetailLoader,action as addFriendDetailAction} from "./routes/addFriendDetail";
 import FriendReqs, {loader as friendReqsLoader} from "./routes/friendReqs";
+import ChatDetail, {loader as chatDetailLoader, action as chatDetailAction} from "./routes/chatDetail";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,12 @@ const router = createBrowserRouter([
             path: ":userId/friendReqs",
             element: <FriendReqs />,
             loader: friendReqsLoader,
+          },
+          {
+            path: "friend/chat/:friendId",
+            element: <ChatDetail />,
+            loader: chatDetailLoader,
+            action: chatDetailAction,
           }
         ]
       }
