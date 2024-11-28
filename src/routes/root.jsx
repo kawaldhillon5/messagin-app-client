@@ -63,7 +63,7 @@ export default function Root(){
                 </div>
             </header>
             <div id="root_content">
-                <div id="root_navbar"><ChatNavbar></ChatNavbar></div>
+                {/* <div id="root_navbar"><ChatNavbar></ChatNavbar></div> */}
                 <div id="root_outlet"><Outlet context={user}></Outlet></div>
             </div>
             <footer>

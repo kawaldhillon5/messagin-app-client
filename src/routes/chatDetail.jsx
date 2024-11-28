@@ -3,11 +3,11 @@ import { getData, postMsg } from "../functions/functions"
 import "../css/chat_css.css"
 import { useEffect, useState } from "react";
 
-export async function action({request,params}) {
-    const formData = await request.formData();
-    const res = await postMsg(formData.get("message"),params.friendId);
-    return redirect(`/friend/chat/${params.friendId}`);
-}
+// export async function action({request,params}) {
+//     const formData = await request.formData();
+//     const res = await postMsg(formData.get("message"),params.friendId);
+//     return redirect(`/friend/chat/${params.friendId}`);
+// }
 
 export async function loader({request, params}) {
 
@@ -101,10 +101,10 @@ function ChatComponent({user, friend}) {
                             <div className="chat_no_msg">No Messages</div>
                         }
             </ul>
-            <Form id="chat_content_form" method="post">
+            <form onSubmit={(e)=>{e.preventDefault()}} id="chat_content_form" method="post">
                     <input id="chat_content_input" type="text" name="message" placeholder="Type Your Message Here" />
-                    <button type="button" onClick={()=>{sendMsg(document.querySelector("#chat_content_input").value,friend)}} >{`>`}</button>
-            </Form>
+                    <button type="submit" onClick={()=>{sendMsg(document.querySelector("#chat_content_input").value,friend)}} >{`>`}</button>
+            </form>
         </>
     )
 

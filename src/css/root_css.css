@@ -45,7 +45,7 @@ header {
 }
 
 #root_outlet{
-    width: 75%;
+    width: clamp(900px,60%,1200px);
     height: 100%;
     margin: 2% 2% 2% 1%;
     background-color: rgba(128, 128, 128, 0.150);
