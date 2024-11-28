@@ -56,3 +56,4 @@ export async function postFriendReqChoice(id, choice) {
 export async function postMsg(message, friendId) {
     return await axios.post(`${baseURL}data/friend/${friendId}/message`,{data: message});
 }
+

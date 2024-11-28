@@ -52,17 +52,20 @@
 }
 
 #chat_content_list{
-    height: 80%;
+    overflow: auto;
+    margin: 0;
+    height: 75%;
     width: 90%;
     background-color: rgba(240, 248, 255, 0.185);
     border-radius: 5px;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    gap: 1%;
+    justify-items: center;
+    align-items: end;
 }
 
 #chat_content_form{
@@ -99,11 +102,13 @@
 }
 
 .chat_item_div{
+    height: auto;
     width: 90%;
     display: flex;
 }
 
 .chat_item{
+    height: auto;
     margin-bottom: 2%;
     padding: 1%;
     background-color: rgb(71, 71, 71);
@@ -111,11 +116,13 @@
 }
 
 .chat_item_right{
+    height: auto;
     margin-right: 2%;
     margin-left: auto;
 }
 
 .chat_item_left{
+    height: auto;
     margin-left: 2%;
     margin-right: auto;
 }
