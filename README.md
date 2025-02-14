@@ -1,8 +1,10 @@
-# React + Vite
+React based Real-time chat app created with vite with backend: https://github.com/kawaldhillon5/messaging-app-api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+libraries and dependencies:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React : https://react.dev 
+React-router for navigation: https://reactrouter.com
+Axios for fetching data: https://www.npmjs.com/package/axios
+vite for building: https://vite.dev
+ws library for websocket: https://www.npmjs.com/package/ws
+mongoDb : https://www.mongodb.com
